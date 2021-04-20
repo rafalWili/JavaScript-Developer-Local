@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="./assets//css/style.css">
 
 </head>
-<body><nav>
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.php">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="frontend/second_page.php">Second Page</a>
-  </li>
- 
-</ul>
-</nav>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="w-100">
+    <ul class="nav d-flex flex-row justify-content-end px-5 py-3">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.php">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="frontend/second_page.php">Second Page</a>
+      </li>
+    
+    </ul>
+    </nav>
+</div>
+</div>

@@ -9,3 +9,6 @@
     </div>
   </div>
 </footer>
+<script src="./assets//dist/bundle.js" > </script>
+</body>
+</html>

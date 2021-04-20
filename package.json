@@ -1,0 +1,19 @@
+{
+  "name": "javascript-developer-local",
+  "version": "1.0.0",
+  "description": "js test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafalWili/JavaScript-Developer-Local.git"
+  },
+  "author": "Rafal Wilinski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafalWili/JavaScript-Developer-Local/issues"
+  },
+  "homepage": "https://github.com/rafalWili/JavaScript-Developer-Local#readme"
+}

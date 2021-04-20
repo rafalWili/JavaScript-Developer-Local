@@ -6,7 +6,7 @@ const path = require('path');
 module.exports = {
 
   // Path to your entry point. From this file Webpack will begin its work
-  entry: './assets/src/index.js',
+  entry: './assets/js/index.js',
 
   // Webpack will bundle all JavaScript into this file
   output: {

@@ -1,9 +1,19 @@
 <div class="container my-5">
+<main>
     <div class="row">
-        <main>
+        
             <div class="col-12">    
-                content
+                
+                <div class="slide_show">
+
+                <span class="next"> > </span>
+                <span class="prev">< </span>
+                </div>
+
+
             </div>
-        </main>
+   
     </div>
+
+    </main>
 </div>

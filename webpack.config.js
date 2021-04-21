@@ -3,6 +3,8 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack')
+
 
 // This is the main configuration object.
 // Here, you write different options and tell Webpack what to do
@@ -51,13 +53,30 @@ module.exports = {
           loader: 'sass-loader'
         }
       ]
-    }
+    },
+    // {
+    //   // Exposes jQuery for use outside Webpack build
+    //   test: require.resolve('jquery'),
+    //   use: [{
+    //     loader: 'expose-loader',
+    //     options: 'jQuery'
+    //   },{
+    //     loader: 'expose-loader',
+    //     options: '$'
+    //   }]
+    // }
+
+    
 ]
   },
   plugins: [
     // Define the filename pattern for CSS.
     new MiniCssExtractPlugin({
       filename: './assets/style.css',
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
     })
   ],
 

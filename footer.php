@@ -3,7 +3,7 @@
     <div class="row">  
         <div class="col">  
 
-        <form id="registration_form" action="" method="POST" >
+        <form id="registration_form" action="register.php" method="POST" >
         <div class="card w-100   p-3">
             <h4 class="w-100 pb-3">Registration Form</h4>
             <div class="d-flex flex-row"> 

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rafalWili/JavaScript-Developer-Local#readme",
   "dependencies": {
     "file-loader": "^6.2.0",
+    "jquery-validation": "^1.19.3",
     "npm": "^6.14.13"
   },
   "devDependencies": {

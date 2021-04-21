@@ -15,7 +15,7 @@
     <nav class="w-100">
     <ul class="nav d-flex flex-row justify-content-end px-5 py-3">
       <li class="nav-item">
-        <a class="nav-link" href="../index.php">Home</a>
+        <a class="nav-link" href="<?php echo basename($_SERVER['PHP_SELF']) == "index.php" ? '' : '../' ?>index.php ">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="frontend/second_page.php">Second Page</a>

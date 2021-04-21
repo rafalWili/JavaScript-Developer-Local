@@ -60,15 +60,22 @@ function initSlider(data_from_API){
     } );
     console.log('SliderData',SliderData)
 
-    function Slider(name){
-        this.name = name;
+    function Slider(allSlides){
+        this.allSlides = allSlides;
+
+     
+        this.initSlides = function(){
+            console.log(this.allSlides)
+        }
+
+
     }
 
 
+    
+    let startSlider = new Slider(SliderData)
 
-
-
-
+    startSlider.initSlides();
 
 
 }
@@ -86,5 +93,4 @@ function initSlider(data_from_API){
         );
 
 
-        
       

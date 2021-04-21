@@ -4,7 +4,7 @@
         
             <div class="col-12">    
                 
-                <div class="slide_show">
+                <div id="slide_show" class="slide_show">
 
                 <span class="next"> > </span>
                 <span class="prev">< </span>

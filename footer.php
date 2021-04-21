@@ -25,7 +25,7 @@
                   <input type="password" class="form-control" name="pass1" id="pass1" required>
                 </div>
                 <div class="form-group ">
-                  <label for="InputPassword2">Password*</label>
+                  <label for="InputPassword2">Confirm Password*</label>
                   <input type="password" class="form-control" name="pass2" id="pass2" required>
                 </div>
               </div>

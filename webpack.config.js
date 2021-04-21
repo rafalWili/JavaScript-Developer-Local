@@ -3,7 +3,9 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require('webpack')
+const webpack = require('webpack');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+
 
 
 // This is the main configuration object.
@@ -54,20 +56,13 @@ module.exports = {
         }
       ]
     },
-    // {
-    //   // Exposes jQuery for use outside Webpack build
-    //   test: require.resolve('jquery'),
-    //   use: [{
-    //     loader: 'expose-loader',
-    //     options: 'jQuery'
-    //   },{
-    //     loader: 'expose-loader',
-    //     options: '$'
-    //   }]
-    // }
+
 
     
 ]
+  },
+  resolve : {
+fallback : { util : require.resolve("util/")}
   },
   plugins: [
     // Define the filename pattern for CSS.

@@ -22,3 +22,57 @@ footer {
 button {
   max-height: 38px;
 }
+
+/** SLIDER **/
+.slide_show {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: block;
+  position: relative;
+  min-height: 150px;
+}
+
+.Slider_wrapper {
+  position: absolute;
+  display: none;
+}
+
+.slider_img_wrapper {
+  position: relative;
+  display: block;
+}
+
+.absolute {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.info_slider {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+.info_slider span {
+  display: block;
+  line-height: 16px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.currentSlide {
+  display: flex;
+}
+
+.slide_nav {
+  position: absolute;
+  bottom: -25%;
+  left: 0;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.slide_nav span:hover {
+  cursor: pointer;
+}

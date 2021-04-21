@@ -1,6 +1,6 @@
 console.log('lets start');
 
-import $ from 'jquery';
+import $, { fn } from 'jquery';
 import jqueryValidation from 'jquery-validation';
 window.jQuery = $;
 window.$ = $;
@@ -62,10 +62,63 @@ function initSlider(data_from_API){
 
     function Slider(allSlides){
         this.allSlides = allSlides;
+        this.max_slides = allSlides.length;
 
+        this.SlideTemplate = function(location, title, image,id,index ){
+            let slideTemp = `<div data-id="${id}" class="Slider_wrapper slider_id_${id} ${index == 0 ? 'currentSlide' : ''} " >
+                                <div class="slider_img_wrapper">
+                                    <img src="${image}"  alt="${title}">
+                                    <div class="absolute info_slider">
+                                    <p class="mb-1"> Location : ${location} </p>
+                                    <span>Title:  ${title} </span>
+                                    </div>
+                                </div>
+                                   
+                             </div>`;
+           // console.log(slideTemp);
+            return slideTemp;
+        }
+
+        this.getCurrentSlideID = function(){
+          let currentSlide =   $('.currentSlide');
+          let ID = parseInt( currentSlide.attr('data-id') );
+             return ID;
+        }
+
+        this.nextSlide = function(){
+            let current_slideID = this.getCurrentSlideID();
+            let nextSlide = current_slideID + 1;
+            //console.log($.type(current_slideID))
+            if( $('.slider_id_'+nextSlide).length > 0 ){
+                $('.currentSlide').fadeOut().removeClass('currentSlide');
+                $('.slider_id_'+nextSlide).fadeIn(800).addClass('currentSlide');
+            }else{
+                $('.currentSlide').fadeOut().removeClass('currentSlide');
+                $('.slider_id_1').delay(100).fadeIn(800).addClass('currentSlide');
+            }
+        }
+        this.prevSlide = function(){
+            let current_slideID = this.getCurrentSlideID();
+            let prevSlide = current_slideID - 1;
+            //console.log($.type(current_slideID))
+            if( $('.slider_id_'+prevSlide).length > 0 ){
+                $('.currentSlide').fadeOut().removeClass('currentSlide');
+                $('.slider_id_'+prevSlide).fadeIn(800).addClass('currentSlide');
+            }else{
+                $('.currentSlide').fadeOut().removeClass('currentSlide');
+                $('.slider_id_'+ this.max_slides).delay(100).fadeIn(800).addClass('currentSlide');
+            }
+        }
      
         this.initSlides = function(){
-            console.log(this.allSlides)
+            let slideTemp =   this.SlideTemplate;
+           let all_slides = '';  
+           $.each(this.allSlides, function(index, item){
+            all_slides += slideTemp(item.location, item.title, item.thumbnailUrl, item.id, index )
+            });
+            $('#slide_show').append(all_slides)
+           // console.log(all_slides);
+           
         }
 
 
@@ -76,6 +129,9 @@ function initSlider(data_from_API){
     let startSlider = new Slider(SliderData)
 
     startSlider.initSlides();
+
+    $('.prev').on('click', function (){ startSlider.nextSlide()  })
+    $('.next').on('click', function (){ startSlider.prevSlide()  })
 
 
 }

@@ -5,9 +5,12 @@
             <div class="col-12">    
                 
                 <div id="slide_show" class="slide_show">
-
-                <span class="next"> > </span>
-                <span class="prev">< </span>
+                    <div class="slide_nav">
+                       
+                        <span class="next">< </span>
+                        <span class="prev"> > </span>
+                    </div>
+               
                 </div>
 
 

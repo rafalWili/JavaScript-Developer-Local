@@ -50,6 +50,18 @@ $valid = false;
         $valid = 'info'; 
 
         $thank_you =  "<p>Thank You. Message Sent, we will get in touch witch you soon on your email: ".$_POST['user_email']." </p>";
+
+       // $mysqli = new mysqli("127.0.0.1","root","qwerty","test_db");
+
+// Check connection
+// if ($mysqli -> connect_errno) {
+//   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+//   exit();
+// }else{
+//     echo 'All fine !';
+// }
+
+
     }else{
         $valid = 'danger'; 
 

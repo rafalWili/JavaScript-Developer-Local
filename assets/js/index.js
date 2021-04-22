@@ -1,6 +1,6 @@
 console.log('lets start');
 
-import $, { fn } from 'jquery';
+import $, { css, fn } from 'jquery';
 import jqueryValidation from 'jquery-validation';
 window.jQuery = $;
 window.$ = $;
@@ -50,6 +50,9 @@ $("#registration_form").validate({
     
   });
 
+
+  /*** SLIDER ***/
+
 function initSlider(data_from_API){
     //console.log(data_from_API)
 
@@ -58,7 +61,7 @@ function initSlider(data_from_API){
         SliderData.push(Object.assign({},  {location: item, ...data_from_API[index] } ))
 
     } );
-    console.log('SliderData',SliderData)
+    //console.log('SliderData',SliderData)
 
     function Slider(allSlides){
         this.allSlides = allSlides;
@@ -140,11 +143,17 @@ function initSlider(data_from_API){
           //geting data from API 
           $.ajax( {
             url : "https://jsonplaceholder.typicode.com/photos",
+            beforeSend: function() {
+                $("#loaderDiv").show();
+            },
+            success : function(data) {
+                $("#loaderDiv").hide();
+                $('.slide_nav').css({ display: 'flex'})
+                data_from_API= data.slice(0,10);
+                initSlider(data_from_API);
+            }
+      
             
-        }).then(function(data) {
-             // console.log(data.slice(0,10))
-              data_from_API= data.slice(0,10);
-              initSlider(data_from_API);
         }
         );
 

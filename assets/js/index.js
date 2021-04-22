@@ -158,4 +158,21 @@ function initSlider(data_from_API){
         );
 
 
+        /********** SECOND PAGE ***************/
+
+        $('#hamburger_input').on('click', function(){
+           console.log( $(this).is(':checked') )
+            if($(this).is(':checked') ) {
+               $('.main_content').stop().animate({ left : -50 + 'px' }, 1000, function(){
+                   $('#animated_menu li').each( function(index,item){
+                        $(this).delay( 2000 * index).css({ transform : 'translateX(0px)'})
+                   })
+               })
+            }else{ 
+            $('.main_content').stop().animate({ left : -120 + '%' }, 1000)
+            }
+
+        })
+
+
       

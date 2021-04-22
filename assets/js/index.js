@@ -161,15 +161,30 @@ function initSlider(data_from_API){
         /********** SECOND PAGE ***************/
 
         $('#hamburger_input').on('click', function(){
-           console.log( $(this).is(':checked') )
+          //show animated content
             if($(this).is(':checked') ) {
                $('.main_content').stop().animate({ left : -50 + 'px' }, 1000, function(){
+                   //show each element with some delay between each aniamtion
                    $('#animated_menu li').each( function(index,item){
-                        $(this).delay( 2000 * index).css({ transform : 'translateX(0px)'})
+                       setTimeout(function(){
+                        $('#animated_menu li').eq(index).css({ transform : 'translateX('+( -100 + (20 * index ))+'px)'})
+                       },200 + ( index * 200 )) 
+                        
                    })
                })
             }else{ 
-            $('.main_content').stop().animate({ left : -120 + '%' }, 1000)
+                   //hide animated content
+                $('#animated_menu li').each( function(index,item){
+                   //hide each element with some delay between each aniamtion
+                    setTimeout(function(){
+                     $('#animated_menu li').eq(4-index).css({ transform : 'translateX(120%)'})
+                    },200 + ( index * 200 )) 
+                     
+                })
+                setTimeout(function(){
+                         $('.main_content').stop().animate({ left : -120 + '%' }, 1000)
+
+                },1400)
             }
 
         })

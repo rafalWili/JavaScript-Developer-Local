@@ -2,6 +2,6 @@
 
 
  
-#how to run dev webpack
+## how to run dev webpack
 command: 
-npm run build:dev
+**npm run build:dev**

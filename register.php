@@ -47,19 +47,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // email validation - email structure
 $valid = false; 
     if (array_sum($form_errors) == 0) {
+  
+
+            // Create connection
+           
+        $conn = new mysqli("localhost","root","","test_js");
+
+//Check connection
+if ($conn -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $conn -> connect_error;
+  exit();
+}else{
+    $user= $_POST["user_name"];
+    $email = $_POST["user_email"]; //add sanitize email to avoid injection --future fix
+    $pass = $_POST["pass1"];       // hash password to not be able to see password string later on in DB --future fix
+
+    $sql = 'INSERT INTO registered_users (id,user_name, email, password) VALUES ("null","'.$user.'","'.$email.'","'.$pass.'")';
+
+    if (mysqli_query($conn, $sql)) {
         $valid = 'info'; 
 
-        $thank_you =  "<p>Thank You. Message Sent, we will get in touch witch you soon on your email: ".$_POST['user_email']." </p>";
-
-       // $mysqli = new mysqli("127.0.0.1","root","qwerty","test_db");
-
-// Check connection
-// if ($mysqli -> connect_errno) {
-//   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-//   exit();
-// }else{
-//     echo 'All fine !';
-// }
+        $thank_you =  "<p>Thank You. Registration complited, we will get in touch witch you soon on your email: ".$_POST['user_email']." </p>";
+    } else {
+        
+        $thank_you =  "Error: " . $sql . "" . mysqli_error($conn);
+    }
+    $conn->close();
+}
 
 
     }else{

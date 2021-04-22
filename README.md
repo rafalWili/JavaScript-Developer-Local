@@ -1,8 +1,8 @@
 # JavaScript Developer Local
 
 ### Create DB
-go to localhost/phpmyadmin
-inport file from /assets/sql
+> go to localhost/phpmyadmin
+> inport file from /assets/sql
 
 ### where to start
 ```
